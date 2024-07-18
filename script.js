@@ -14,7 +14,7 @@ const fetchedData = async () => {
 const getProductDetails = async () => {
     const response = await fetchedData();
     products = response.categories;
-    //console.log(products); // Log the products after fetching
+    //console.log(products); 
     return products;
 }
 getProductDetails()
@@ -23,7 +23,7 @@ let isTabActive = false;
 
 function displayProducts(array) {
     let unorderEL = document.getElementById('unorder');
-    unorderEL.innerHTML = ''; // Clear any existing content
+    unorderEL.innerHTML = ''; 
 
     array.forEach(eachItem => {
         let listItem = document.createElement('div');
