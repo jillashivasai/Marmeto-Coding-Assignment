@@ -28,7 +28,8 @@ function displayProducts(array) {
     array.forEach(eachItem => {
         let listItem = document.createElement('div');
         listItem.classList.add('flexs');
-
+        let discountPrice = eachItem.compare_at_price - eachItem.price;
+        let discountPercent = Math.round((discountPrice / eachItem.compare_at_price) * 100);
         listItem.innerHTML = `
             <div class="bg">
                 <img src="${eachItem.image}" alt="${eachItem.title}" class="img"/>
@@ -39,7 +40,7 @@ function displayProducts(array) {
                 <div class="flex">
                     <p>Rs ${eachItem.price}</p>
                     <p class="strike">${eachItem.compare_at_price}</p>
-                    <p class='discount'>50% Off</p>
+                    <p class='discount'>${discountPercent}50% Off</p>
                 </div>
                 <button class='cart-button'>Add to Cart</button>
                 ${eachItem.badge_text !== null ? `<p class="position">${eachItem.badge_text}</p>` : ''}
